@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation Playground 🐱🐔</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <div class="logo">🐱 Animation Playground 🐔</div>
+      <div class="nav-links">
+        <a href="#transitions">Transitions</a>
+        <a href="#hover">Hover States</a>
+        <a href="#animations">Animations</a>
+        <a href="#keyframes">Keyframes</a>
+        <a href="#loading">Loading Spinner</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- SECTION 1: Transitions Intro -->
+    <section class="section" id="transitions">
+      <h2 class="section-title">🐔 CSS Transitions</h2>
+      <p class="section-subtitle">Smooth changes between states - hover over the boxes to see the difference!</p>
+
+      <div class="comparison-grid">
+        <div class="comparison-box">
+          <h3>❌ Without Transition</h3>
+          <div class="comparison-demo">
+            <div class="no-transition">🐱</div>
+          </div>
+          <p style="color: #666; font-size: 0.9rem;">Changes happen instantly - jarring!</p>
+        </div>
+
+        <div class="comparison-box">
+          <h3>✅ With Transition</h3>
+          <div class="comparison-demo">
+            <div class="with-transition">🐱</div>
+          </div>
+          <p style="color: #666; font-size: 0.9rem;">Smooth animation over 0.5s - much better!</p>
+        </div>
+      </div>
+
+      <div class="two-column" style="margin-top: 30px;">
+        <div class="controls">
+          <div class="controls-header">
+            <span>⚙️ Transition Controls</span>
+            <button class="reset-btn" id="resetTransition">🔄 Reset</button>
+          </div>
+
+          <div class="control-group">
+            <label>transition-property:</label>
+            <select id="transitionProperty">
+              <option value="all">all</option>
+              <option value="transform">transform</option>
+              <option value="background">background</option>
+              <option value="opacity">opacity</option>
+              <option value="border-radius">border-radius</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>transition-duration: <span class="value-display" id="durationValue">0.3s</span></label>
+            <input type="range" id="transitionDuration" min="0.1" max="2" step="0.1" value="0.3">
+          </div>
+
+          <div class="control-group">
+            <label>transition-timing-function:</label>
+            <select id="transitionTiming">
+              <option value="ease">ease</option>
+              <option value="linear">linear</option>
+              <option value="ease-in">ease-in</option>
+              <option value="ease-out">ease-out</option>
+              <option value="ease-in-out">ease-in-out</option>
+              <option value="cubic-bezier(0.68, -0.55, 0.265, 1.55)">bounce (cubic-bezier)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>transition-delay: <span class="value-display" id="delayValue">0s</span></label>
+            <input type="range" id="transitionDelay" min="0" max="1" step="0.1" value="0">
+          </div>
+
+          <div class="code-display">
+            <span class="selector">.element</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="property">transition</span><span class="punctuation">:</span> <span class="value" id="codeTransition">all 0.3s ease 0s</span><span class="punctuation">;</span><br>
+            <span class="punctuation">}</span>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="transition-box" id="transitionDemo">🐔</div>
+          <div class="transition-display">Hover me! 👆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Hover States -->
+    <section class="section" id="hover">
+      <h2 class="section-title">🐱 Hover States</h2>
+      <p class="section-subtitle">Common hover effects you can use - hover over each box!</p>
+
+      <div class="instructions">
+        <p>👆 Hover over each animal to see different hover effects in action!</p>
+      </div>
+
+      <div class="hover-demo-grid">
+        <div class="hover-box hover-scale" style="transition: all 0.3s ease;">
+          🐱
+          <div class="hover-box-label">Scale Up</div>
+        </div>
+        <div class="hover-box hover-rotate" style="transition: all 0.3s ease;">
+          🐔
+          <div class="hover-box-label">Rotate</div>
+        </div>
+        <div class="hover-box hover-shadow" style="transition: all 0.3s ease;">
+          🐱
+          <div class="hover-box-label">Shadow + Lift</div>
+        </div>
+        <div class="hover-box hover-color" style="transition: all 0.3s ease;">
+          🐔
+          <div class="hover-box-label">Color Change</div>
+        </div>
+        <div class="hover-box hover-grow" style="transition: all 0.3s ease;">
+          🐱
+          <div class="hover-box-label">Grow + Rotate</div>
+        </div>
+        <div class="hover-box hover-shrink" style="transition: all 0.3s ease;">
+          🐔
+          <div class="hover-box-label">Shrink</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Animations -->
+    <section class="section" id="animations">
+      <h2 class="section-title">🐔 CSS Animations</h2>
+      <p class="section-subtitle">Control animations with these properties - play with the values!</p>
+
+      <div class="two-column">
+        <div class="controls">
+          <div class="controls-header">
+            <span>⚙️ Animation Controls</span>
+            <button class="reset-btn" id="resetAnimation">🔄 Reset</button>
+          </div>
+
+          <div class="control-group">
+            <label>Choose your animal:</label>
+            <div class="animal-selector">
+              <button class="animal-btn active" data-animal="🐱">🐱</button>
+              <button class="animal-btn" data-animal="🐔">🐔</button>
+              <button class="animal-btn" data-animal="🐥">🐥</button>
+              <button class="animal-btn" data-animal="😺">😺</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>animation-name:</label>
+            <div class="preset-buttons">
+              <button class="preset-btn active" data-name="bounce">bounce</button>
+              <button class="preset-btn" data-name="spin">spin</button>
+              <button class="preset-btn" data-name="shake">shake</button>
+              <button class="preset-btn" data-name="pulse">pulse</button>
+              <button class="preset-btn" data-name="swing">swing</button>
+              <button class="preset-btn" data-name="float">float</button>
+              <button class="preset-btn" data-name="wobble">wobble</button>
+              <button class="preset-btn" data-name="flip">flip</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>animation-duration: <span class="value-display" id="animDurationValue">1s</span></label>
+            <input type="range" id="animDuration" min="0.2" max="3" step="0.1" value="1">
+          </div>
+
+          <div class="control-group">
+            <label>animation-timing-function:</label>
+            <select id="animTiming">
+              <option value="ease">ease</option>
+              <option value="linear">linear</option>
+              <option value="ease-in">ease-in</option>
+              <option value="ease-out">ease-out</option>
+              <option value="ease-in-out" selected>ease-in-out</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>animation-delay: <span class="value-display" id="animDelayValue">0s</span></label>
+            <input type="range" id="animDelay" min="0" max="2" step="0.1" value="0">
+          </div>
+
+          <div class="control-group">
+            <label>animation-iteration-count:</label>
+            <select id="animIteration">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="infinite" selected>infinite</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>animation-direction:</label>
+            <select id="animDirection">
+              <option value="normal">normal</option>
+              <option value="reverse">reverse</option>
+              <option value="alternate" selected>alternate</option>
+              <option value="alternate-reverse">alternate-reverse</option>
+            </select>
+          </div>
+
+          <button class="play-btn" id="playPauseBtn">⏸️ Pause Animation</button>
+
+          <div class="code-display">
+            <span class="selector">.element</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="property">animation-name</span><span class="punctuation">:</span> <span class="value" id="codeAnimName">bounce</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation-duration</span><span class="punctuation">:</span> <span class="value" id="codeAnimDuration">1s</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value" id="codeAnimTiming">ease-in-out</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value" id="codeAnimDelay">0s</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation-iteration-count</span><span class="punctuation">:</span> <span class="value" id="codeAnimIteration">infinite</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation-direction</span><span class="punctuation">:</span> <span class="value" id="codeAnimDirection">alternate</span><span class="punctuation">;</span><br>
+            <span class="punctuation">}</span><br><br>
+            <span class="comment">/* Shorthand: */</span><br>
+            <span class="property">animation</span><span class="punctuation">:</span> <span class="value" id="codeAnimShorthand">bounce 1s ease-in-out 0s infinite alternate</span><span class="punctuation">;</span>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="keyframe-demo-area">
+            <div class="animated-element" id="animatedAnimal" style="animation: bounce 1s ease-in-out infinite alternate;">🐱</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Keyframes -->
+    <section class="section" id="keyframes">
+      <h2 class="section-title">🐱 @keyframes</h2>
+      <p class="section-subtitle">Define the steps of your animation - see how keyframes work!</p>
+
+      <div class="two-column">
+        <div class="controls">
+          <div class="controls-header">
+            <span>⚙️ Keyframe Examples</span>
+            <button class="reset-btn" id="resetKeyframes">🔄 Reset</button>
+          </div>
+
+          <div class="control-group">
+            <label>Choose a keyframe animation:</label>
+            <div class="preset-buttons">
+              <button class="preset-btn keyframe-btn active" data-keyframe="bounce">bounce</button>
+              <button class="preset-btn keyframe-btn" data-keyframe="spin">spin</button>
+              <button class="preset-btn keyframe-btn" data-keyframe="pulse">pulse</button>
+              <button class="preset-btn keyframe-btn" data-keyframe="shake">shake</button>
+            </div>
+          </div>
+
+          <div class="code-display" id="keyframeCode" style="min-height: 200px;">
+            <span class="keyword">@keyframes</span> <span class="value">bounce</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="selector">0%, 100%</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateY(0)</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="punctuation">}</span><br>
+            &nbsp;&nbsp;<span class="selector">50%</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateY(-50px)</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="punctuation">}</span><br>
+            <span class="punctuation">}</span>
+          </div>
+
+          <div style="margin-top: 15px; padding: 15px; background: rgba(255,204,0,0.2); border-radius: 10px;">
+            <p style="margin: 0; font-size: 0.9rem; color: #856404;">
+              💡 <strong>Keyframes define WHAT happens.</strong> The animation properties define HOW it happens (speed, timing, repetition).
+            </p>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="keyframe-demo-area">
+            <div class="animated-element" id="keyframeAnimal" style="animation: bounce 1s ease-in-out infinite alternate;">🐔</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Loading Animation -->
+    <section class="section" id="loading">
+      <h2 class="section-title">🐔 Loading Animation</h2>
+      <p class="section-subtitle">The 3D rotating box</p>
+
+      <div class="two-column">
+        <div class="controls">
+          <div class="controls-header">
+            <span>⚙️ Loading Animation</span>
+            <button class="reset-btn" id="resetLoading">🔄 Reset</button>
+          </div>
+
+          <div class="control-group">
+            <label>animation-duration: <span class="value-display" id="loadingDurationValue">2s</span></label>
+            <input type="range" id="loadingDuration" min="0.5" max="5" step="0.5" value="2">
+          </div>
+
+          <div class="control-group">
+            <label>animation-timing-function:</label>
+            <select id="loadingTiming">
+              <option value="ease">ease</option>
+              <option value="linear">linear</option>
+              <option value="ease-in">ease-in</option>
+              <option value="ease-out">ease-out</option>
+              <option value="ease-in-out" selected>ease-in-out</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Box Color:</label>
+            <input type="color" id="loadingColor" value="#ee5a24">
+          </div>
+
+          <button class="play-btn" id="loadingPlayBtn">⏸️ Pause</button>
+
+          <div class="code-display">
+            <span class="selector">.loading</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="property">height</span><span class="punctuation">:</span> <span class="value">50px</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">width</span><span class="punctuation">:</span> <span class="value">50px</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">border</span><span class="punctuation">:</span> <span class="value">6px solid <span id="codeLoadingColor">#ee5a24</span></span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">border-radius</span><span class="punctuation">:</span> <span class="value">4px</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">box-shadow</span><span class="punctuation">:</span> <span class="value">0 0 8px, inset 0 0 8px</span><span class="punctuation">;</span><br>
+            &nbsp;&nbsp;<span class="property">animation</span><span class="punctuation">:</span> <span class="value" id="codeLoadingAnim">loading 2s ease-in-out infinite</span><span class="punctuation">;</span><br>
+            <span class="punctuation">}</span>
+          </div>
+
+          <div class="code-display" style="margin-top: 10px;">
+            <span class="keyword">@keyframes</span> <span class="value">loading</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="selector">0%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">rotateX(0) rotateY(0) rotateZ(0)</span><span class="punctuation">;</span> <span class="punctuation">}</span><br>
+            &nbsp;&nbsp;<span class="selector">33%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">rotateX(180deg) rotateY(0) rotateZ(0)</span><span class="punctuation">;</span> <span class="punctuation">}</span><br>
+            &nbsp;&nbsp;<span class="selector">67%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">rotateX(180deg) rotateY(180deg) rotateZ(0)</span><span class="punctuation">;</span> <span class="punctuation">}</span><br>
+            &nbsp;&nbsp;<span class="selector">100%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">rotateX(180deg) rotateY(180deg) rotateZ(180deg)</span><span class="punctuation">;</span> <span class="punctuation">}</span><br>
+            <span class="punctuation">}</span>
+          </div>
+        </div>
+
+        <div class="demo-container" style="background: linear-gradient(145deg, #1a1a2e, #16213e);">
+          <div class="loading-demo-area">
+            <div class="loading-box animating" id="loadingBox"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🐱 CSS Animation Playground - Make your websites come alive! 🐔</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
