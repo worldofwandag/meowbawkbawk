@@ -7,7 +7,7 @@ function replayFade() {
   const fadeDemo = document.getElementById('fadeDemo');
   fadeDemo.style.animation = 'none';
   fadeDemo.offsetHeight; // Trigger reflow
-  fadeDemo.style.animation = 'fadeIn 1s ease forwards';
+  fadeDemo.style.animation = 'fadeIn 7s ease forwards';
 }
 
 // Replay Animation Demo
