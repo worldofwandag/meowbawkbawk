@@ -1,4 +1,24 @@
 // ============================================
+// SLIDES DEMO SECTION
+// ============================================
+
+// Replay Fade Animation
+function replayFade() {
+  const fadeDemo = document.getElementById('fadeDemo');
+  fadeDemo.style.animation = 'none';
+  fadeDemo.offsetHeight; // Trigger reflow
+  fadeDemo.style.animation = 'fadeIn 1s ease forwards';
+}
+
+// Replay Animation Demo
+function replayAnimation() {
+  const animationDemo = document.getElementById('animationDemo');
+  animationDemo.style.animation = 'none';
+  animationDemo.offsetHeight; // Trigger reflow
+  animationDemo.style.animation = 'fadeIn 1s ease forwards';
+}
+
+// ============================================
 // SECTION 1: Transitions
 // ============================================
 const transitionDemo = document.getElementById('transitionDemo');
@@ -271,7 +291,9 @@ document.getElementById('resetLoading').addEventListener('click', function() {
   updateLoading();
 });
 
+// ============================================
 // Initialize
+// ============================================
 updateTransition();
 updateAnimation();
 updateLoading();

@@ -11,6 +11,7 @@
     <div class="nav-content">
       <div class="logo">🐱 Animation Playground 🐔</div>
       <div class="nav-links">
+        <a href="#slides-demo">Slides Demo</a>
         <a href="#transitions">Transitions</a>
         <a href="#hover">Hover States</a>
         <a href="#animations">Animations</a>
@@ -21,6 +22,261 @@
   </nav>
 
   <main>
+    <!-- NEW SECTION: Slides Demo -->
+    <section class="section slides-section" id="slides-demo">
+      <h2 class="section-title">📚 Slides Demo - Follow Along!</h2>
+      <p class="section-subtitle">These examples match exactly what's in the slides. Hover over each demo to see it in action!</p>
+
+      <!-- Hover States Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Hover States</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>What is a hover state?</h4>
+            <ul>
+              <li>Style applied when the mouse is over an element</li>
+              <li>Improves user feedback</li>
+            </ul>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.button</span> {
+  <span class="property">background</span>: <span class="value">#111</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+  <span class="property">padding</span>: <span class="value">10px 16px</span>;
+  <span class="property">border-radius</span>: <span class="value">8px</span>;
+}
+
+<span class="selector">.button:hover</span> {
+  <span class="property">background</span>: <span class="value">#333</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left">🐱</span>
+              <div class="button-with-bawk">
+                <span class="bawk-text">Bawk!</span>
+                <button class="demo-button hover-only">Hover Me!</button>
+              </div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">👆 Hover to see instant change (no transition)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transitions Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐔 Transitions</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>What is a transition?</h4>
+            <ul>
+              <li>Makes style changes smooth</li>
+              <li>Adds polish</li>
+            </ul>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.button</span> {
+  <span class="property">background</span>: <span class="value">#111</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+  <span class="property">padding</span>: <span class="value">10px 16px</span>;
+  <span class="property">border-radius</span>: <span class="value">8px</span>;
+  <span class="property">transition</span>: <span class="value">background 0.7s ease</span>;
+}
+
+<span class="selector">.button:hover</span> {
+  <span class="property">background</span>: <span class="value">#333</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left">🐱</span>
+              <div class="button-with-meow">
+                <span class="meow-text">Meow!</span>
+                <button class="demo-button slow-transition">Hover Me!</button>
+              </div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">👆 Hover to see smooth transition (0.7s)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transform (Movement) Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Transform (Movement)</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>What is transform?</h4>
+            <ul>
+              <li>Moves or scales elements</li>
+              <li>Doesn't break layout</li>
+            </ul>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.card</span> {
+  <span class="property">transition</span>: <span class="value">transform 0.3s ease</span>;
+}
+
+<span class="selector">.card:hover</span> {
+  <span class="property">transform</span>: <span class="value">translateY(-5px)</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left sitting">🐱</span>
+              <div class="demo-card transform-demo">
+                <span style="font-size: 2rem;">🐔</span>
+                <p>Hover this card!</p>
+              </div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">👆 Card lifts up on hover</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scale Example Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Scale Example</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>Scale Transform</h4>
+            <p>This slightly increases size when hovered.</p>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.card:hover</span> {
+  <span class="property">transform</span>: <span class="value">scale(1.05)</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left sitting">🐱</span>
+              <div class="demo-card scale-demo">
+                <span style="font-size: 2rem;">🐱</span>
+                <p>Hover to scale!</p>
+              </div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">👆 Card grows slightly on hover</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What is @keyframes Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐔 What is @keyframes?</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>@keyframes defines animation steps.</h4>
+            <p>It tells CSS:</p>
+            <ul>
+              <li>Where animation starts</li>
+              <li>Where it ends</li>
+              <li>What happens in between</li>
+            </ul>
+          </div>
+          <div class="slide-code">
+            <pre><span class="keyword">@keyframes</span> <span class="value">fadeIn</span> {
+  <span class="selector">from</span> { <span class="property">opacity</span>: <span class="value">0</span>; }
+  <span class="selector">to</span> { <span class="property">opacity</span>: <span class="value">1</span>; }
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left">🐔</span>
+              <div class="fade-demo-box" id="fadeDemo">🐱</div>
+              <span class="demo-animal right">🐱</span>
+            </div>
+            <button class="replay-btn" onclick="replayFade()">🔄 Replay Fade In</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Using an Animation Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Using an Animation</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>Breakdown:</h4>
+            <ul>
+              <li><strong>fadeIn</strong> → animation name</li>
+              <li><strong>1s</strong> → duration</li>
+              <li><strong>ease</strong> → speed curve</li>
+              <li><strong>forwards</strong> → keep final state</li>
+            </ul>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.box</span> {
+  <span class="property">animation</span>: <span class="value">fadeIn 1s ease forwards</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left">🐱</span>
+              <div class="animation-demo-box" id="animationDemo">🐔</div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <button class="replay-btn" onclick="replayAnimation()">🔄 Replay Animation</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Animation (Spinner) Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Loading Animation (Spinner)</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>HTML</h4>
+            <pre class="html-code">&lt;div class="loader"&gt;&lt;/div&gt;</pre>
+          </div>
+          <div class="slide-code">
+            <pre><span class="selector">.loader</span> {
+  <span class="property">width</span>: <span class="value">40px</span>;
+  <span class="property">height</span>: <span class="value">40px</span>;
+  <span class="property">border</span>: <span class="value">4px solid #ddd</span>;
+  <span class="property">border-top</span>: <span class="value">4px solid #111</span>;
+  <span class="property">border-radius</span>: <span class="value">50%</span>;
+  <span class="property">animation</span>: <span class="value">spin 1s linear infinite</span>;
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left reading">🐱</span>
+              <div class="spinner-loader"></div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">Spins continuously!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keyframes for Loader Slide -->
+      <div class="slide-demo-card">
+        <h3 class="slide-title">🐱 Keyframes for Loader</h3>
+        <div class="slide-content">
+          <div class="slide-info">
+            <h4>How it works:</h4>
+            <p>This rotates the loader 360 degrees continuously.</p>
+          </div>
+          <div class="slide-code">
+            <pre><span class="keyword">@keyframes</span> <span class="value">spin</span> {
+  <span class="selector">from</span> { <span class="property">transform</span>: <span class="value">rotate(0deg)</span>; }
+  <span class="selector">to</span> { <span class="property">transform</span>: <span class="value">rotate(360deg)</span>; }
+}</pre>
+          </div>
+          <div class="slide-demo">
+            <div class="demo-with-animals">
+              <span class="demo-animal left sleeping">🐱</span>
+              <div class="spinner-loader large"></div>
+              <span class="demo-animal right">🐔</span>
+            </div>
+            <p class="demo-label">0deg → 360deg = full rotation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 1: Transitions Intro -->
     <section class="section" id="transitions">
       <h2 class="section-title">🐔 CSS Transitions</h2>
